@@ -118,7 +118,7 @@ function handleSort(field: string): void {
 </template>
 
 <style lang="scss" scoped>
-  .apartment-grid {
+.apartment-grid {
   --apartment-gap: 1.25rem;
   --apartment-grid-areas: 'plan title area floor price';
   --apartment-grid-columns: var(--apartment-plan-image-size) minmax(120px, 1fr) repeat(3, minmax(min-content, 120px));

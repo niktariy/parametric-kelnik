@@ -57,7 +57,7 @@ function onChange(event: Event) {
 </template>
 
 <style lang="scss" scoped>
-  @use 'sass:map';
+@use 'sass:map';
 
 .control-checkbox {
   $checkbox-background-map: map.get($control-checkbox-colors, 'background');

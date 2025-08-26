@@ -164,7 +164,7 @@ async function resetFilters() {
 </template>
 
 <style lang="scss" scoped>
-  .apartment-filter {
+.apartment-filter {
   --filter-padding: 2.5rem;
 
   display: flex;

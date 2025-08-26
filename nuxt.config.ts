@@ -19,8 +19,8 @@ export default defineNuxtConfig({
   css: ['~/assets/styles/main.scss'],
   postcss: {
     plugins: {
-      autoprefixer: {}
-    }
+      autoprefixer: {},
+    },
   },
   vite: {
     css: {

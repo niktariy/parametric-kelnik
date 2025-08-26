@@ -43,7 +43,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-  @use 'sass:map';
+@use 'sass:map';
 
 .scroll-to-top {
   position: fixed;

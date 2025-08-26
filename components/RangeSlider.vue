@@ -148,7 +148,7 @@ const displayValue = computed(() =>
 </template>
 
 <style lang="scss" scoped>
-  .range-slider {
+.range-slider {
   --range-thumb-a11y-size: 2rem;
 
   position: relative;

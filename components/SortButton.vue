@@ -49,38 +49,38 @@ function handleClick(event: MouseEvent) {
 </template>
 
 <style lang="scss" scoped>
-  .sort-button {
+.sort-button {
+  display: flex;
+  gap: 0.5rem;
+  height: 1.25rem;
+  font-weight: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &.is-active {
+    color: $sort-active-color;
+  }
+
+  &__indicator {
     display: flex;
-    gap: 0.5rem;
-    height: 1.25rem;
-    font-weight: inherit;
-    color: inherit;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+    flex-direction: column;
+  }
 
-    &.is-active {
-      color: $sort-active-color;
+  &__icon {
+    color: var(--icon-color, #{rgba($main-font-color, 0.4)});
+    transition: color 0.2s ease;
+    transform: scale(1.25);
+
+    :where([aria-sort='ascending']) &--asc,
+    :where([aria-sort='descending']) &--desc {
+      --icon-color: currentColor;
     }
-
-    &__indicator {
-      display: flex;
-      flex-direction: column;
-    }
-
-    &__icon {
-      color: var(--icon-color, #{rgba($main-font-color, 0.4)});
-      transition: color 0.2s ease;
-      transform: scale(1.25);
-
-      :where([aria-sort='ascending']) &--asc,
-      :where([aria-sort='descending']) &--desc {
-        --icon-color: currentColor;
-      }
-      :where([aria-sort='ascending']) &--desc,
-      :where([aria-sort='descending']) &--asc {
-        --icon-color: #{$sort-inactive-color};
-      }
+    :where([aria-sort='ascending']) &--desc,
+    :where([aria-sort='descending']) &--asc {
+      --icon-color: #{$sort-inactive-color};
     }
   }
+}
 </style>

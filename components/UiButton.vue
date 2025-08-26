@@ -63,7 +63,7 @@ function handleClick(event: MouseEvent) {
 </template>
 
 <style lang="scss" scoped>
-  @use 'sass:map';
+@use 'sass:map';
 
 @mixin button-variant($variant) {
   $variant-map: map.get($button-colors, $variant);

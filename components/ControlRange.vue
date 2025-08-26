@@ -387,7 +387,7 @@ watch([() => props.minValue, () => props.maxValue], () => {
 </template>
 
 <style lang="scss" scoped>
-  .control-range {
+.control-range {
   &__label {
     font-size: 0.875rem;
     font-weight: 400;

@@ -81,7 +81,7 @@ const apartmentTitle = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-  .apartment {
+.apartment {
   --card-border-width: 1px 0 0 0;
   --card-fsz: 1rem;
   --card-padding-block: 1rem 1.5rem;
