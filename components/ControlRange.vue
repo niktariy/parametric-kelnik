@@ -57,6 +57,8 @@ const maxInputRef = ref<HTMLInputElement>()
 const fieldsetId = computed(() => `control-range-${instanceId.value}`)
 const minInputId = computed(() => `${fieldsetId.value}-min`)
 const maxInputId = computed(() => `${fieldsetId.value}-max`)
+const minLabelId = computed(() => `label-${minInputId.value}`)
+const maxLabelId = computed(() => `label-${maxInputId.value}`)
 const rangeValue = computed(() => [props.minValue, props.maxValue])
 
 function generateInstanceId(): string {
@@ -303,8 +305,8 @@ watch([() => props.minValue, () => props.maxValue], () => {
       <div class="control-range__inputs">
         <div class="control-range__input-group">
           <label
+            :id="minLabelId"
             class="control-range__input-label"
-            :for="minInputId"
           >от</label>
           <div class="control-range__input-wrapper">
             <input
@@ -319,6 +321,7 @@ watch([() => props.minValue, () => props.maxValue], () => {
               :disabled="disabled"
               tabindex="-1"
               aria-hidden="true"
+              readonly
             >
             <span
               ref="minSpanRef"
@@ -326,7 +329,7 @@ watch([() => props.minValue, () => props.maxValue], () => {
               class="control-range__input control-range__input--visible"
               :class="{ 'control-range__input--disabled': disabled }"
               role="textbox"
-              :aria-labelledby="minInputId"
+              :aria-labelledby="minLabelId"
               :aria-disabled="disabled"
               @input="handleMinSpanInput"
               @keydown="handleKeydown"
@@ -336,8 +339,8 @@ watch([() => props.minValue, () => props.maxValue], () => {
         </div>
         <div class="control-range__input-group">
           <label
+            :id="maxLabelId"
             class="control-range__input-label"
-            :for="maxInputId"
           >до</label>
           <div class="control-range__input-wrapper">
             <input
@@ -352,6 +355,7 @@ watch([() => props.minValue, () => props.maxValue], () => {
               :disabled="disabled"
               tabindex="-1"
               aria-hidden="true"
+              readonly
             >
             <span
               ref="maxSpanRef"
@@ -359,7 +363,7 @@ watch([() => props.minValue, () => props.maxValue], () => {
               class="control-range__input control-range__input--visible"
               :class="{ 'control-range__input--disabled': disabled }"
               role="textbox"
-              :aria-labelledby="maxInputId"
+              :aria-labelledby="maxLabelId"
               :aria-disabled="disabled"
               @input="handleMaxSpanInput"
               @keydown="handleKeydown"

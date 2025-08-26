@@ -158,7 +158,7 @@ const displayValue = computed(() =>
   padding: 0.375rem 0;
 
   @media (width < $bp-sm) {
-    min-height: --range-thumb-a11y-size;
+    min-height: var(--range-thumb-a11y-size);
   }
 
   &__track {
@@ -190,7 +190,7 @@ const displayValue = computed(() =>
     height: 0.875rem;
     background-color: $slider-thumb-background;
     border-radius: $slider-thumb-radius;
-    box-shadow: var(--thumb-shadow, none);
+    box-shadow: var(--thumb-shadow, 0 0 0 transparent);
     outline-offset: 2px;
     outline: 2px solid var(--outline-color, transparent);
     cursor: pointer;
@@ -223,7 +223,7 @@ const displayValue = computed(() =>
       cursor: not-allowed;
     }
 
-    @media (prefers-contrast: high) {
+    @media (prefers-contrast: more) {
       border: 2px solid ButtonText;
       background-color: ButtonFace;
     }
@@ -238,7 +238,7 @@ const displayValue = computed(() =>
     pointer-events: none;
   }
 
-  @media (prefers-contrast: high) {
+  @media (prefers-contrast: more) {
     .range-slider__track {
       background-color: ButtonShadow;
       border: 1px solid ButtonText;

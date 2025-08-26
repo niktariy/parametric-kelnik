@@ -46,7 +46,7 @@ function handleClick(event: MouseEvent) {
     :disabled="disabled"
     :aria-disabled="disabled || loading ? 'true' : 'false'"
     :aria-busy="loading ? 'true' : 'false'"
-    role="button"
+    type="button"
     @click="handleClick"
   >
     <span

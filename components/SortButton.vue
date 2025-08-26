@@ -2,7 +2,7 @@
 import type { AriaSortValue } from '~/types'
 
 interface SortButtonProps {
-  label: string
+  label?: string
   sortValue: AriaSortValue | undefined
 }
 
@@ -26,9 +26,12 @@ function handleClick(event: MouseEvent) {
   <button
     class="sort-button"
     :class="isSortActive && 'is-active'"
+    type="button"
     @click="handleClick"
   >
-    {{ label }}
+    <slot name="sortLabel">
+      {{ label }}
+    </slot>
     <span
       class="sort-button__indicator"
       aria-hidden="true"
@@ -47,33 +50,33 @@ function handleClick(event: MouseEvent) {
 
 <style lang="scss" scoped>
   .sort-button {
-  display: flex;
-  gap: 0.5rem;
-  height: 1.25rem;
-  font-weight: inherit;
-  color: inherit;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-
-  &.is-active {
-    color: $sort-actvie-color;
-  }
-
-  &__indicator {
     display: flex;
-    flex-direction: column;
-  }
+    gap: 0.5rem;
+    height: 1.25rem;
+    font-weight: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 
-  &__icon {
-    color: rgba($main-font-color, 0.4);
-    transition: color 0.2s ease;
-    transform: scale(1.25);
+    &.is-active {
+      color: $sort-actvie-color;
+    }
 
-    :where([aria-sort='ascending']) &--asc,
-    :where([aria-sort='descending']) &--desc {
-      color: currentColor;
+    &__indicator {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__icon {
+      color: rgba($main-font-color, 0.4);
+      transition: color 0.2s ease;
+      transform: scale(1.25);
+
+      :where([aria-sort='ascending']) &--asc,
+      :where([aria-sort='descending']) &--desc {
+        color: currentColor;
+      }
     }
   }
-}
 </style>

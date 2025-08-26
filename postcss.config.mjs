@@ -4,12 +4,12 @@ import postcssPresetEnv from 'postcss-preset-env'
 /** @type {import('postcss').ProcessOptions} */
 export default {
   plugins: [
-    postcssMediaMinmax(), // сначала minmax, чтобы preset-env уже получил преобразованный код
+    postcssMediaMinmax(),
     postcssPresetEnv({
-      stage: 3, // включает многие современные фичи CSS
+      stage: 3,
       autoprefixer: { grid: true },
       features: {
-        'media-query-ranges': true, // включает преобразование диапазонов
+        'media-query-ranges': true,
       },
     }),
   ],

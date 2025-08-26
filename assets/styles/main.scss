@@ -71,6 +71,10 @@ input {
   @media (width < $bp-md) {
     padding-inline: 54px;
   }
+
+  @media (width < $bp-sm) {
+    padding-inline: 24px;
+  }
 }
 
 h1 {

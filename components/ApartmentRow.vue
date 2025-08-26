@@ -34,8 +34,7 @@ const apartmentTitle = computed(() => {
         <img
           :src="apartment.planImage"
           alt=""
-          preload
-          fetch-priority="high"
+          fetchpriority="high"
           loading="eager"
           width="80"
           height="80"
@@ -50,7 +49,7 @@ const apartmentTitle = computed(() => {
       <span
         class="apartment__area"
         role="cell"
-        aria-describedby="#square_aria_label"
+        aria-describedby="square_aria_label"
       >
         {{ apartment.area }}<span class="hide-md-up">&nbsp;м²</span>
       </span>

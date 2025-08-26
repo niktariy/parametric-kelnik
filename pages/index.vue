@@ -15,70 +15,65 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="page">
-    <main class="main">
-      <div class="container">
-        <section class="apartments">
-          <header class="apartments__header">
-            <h1 class="apartments__title">
-              Квартиры
-            </h1>
-          </header>
+  <main class="main">
+    <div class="container">
+      <section class="apartments">
+        <header class="apartments__header">
+          <h1 class="apartments__title">
+            Квартиры
+          </h1>
+        </header>
+
+        <div
+          role="complementary"
+          class="apartments__filter"
+        >
+          <ApartmentFilter />
+        </div>
+
+        <div class="apartments__content">
+          <div
+            v-if="isLoading"
+            class="apartments__loading-overlay"
+          >
+            <div class="apartments__loading-spinner" />
+            <span>Обновляем данные...</span>
+          </div>
+
+          <ApartmentGrid :data="displayedApartments" />
 
           <div
-            role="complementary"
-            class="apartments__filter"
+            v-if="isLoading && !canLoadMore"
+            class="apartments__loading"
           >
-            <ApartmentFilter />
+            Загрузка...
           </div>
-
-          <div class="apartments__content">
-            <div
-              v-if="isLoading"
-              class="apartments__loading-overlay"
-            >
-              <div class="apartments__loading-spinner" />
-              <span>Обновляем данные...</span>
-            </div>
-
-            <ApartmentGrid :data="displayedApartments" />
-
-            <div
-              v-if="isLoading && !canLoadMore"
-              class="apartments__loading"
-            >
-              Загрузка...
-            </div>
-          </div>
-          <div
-            v-if="canLoadMore"
-            class="apartments__pagination"
+        </div>
+        <div
+          v-if="canLoadMore"
+          class="apartments__pagination"
+        >
+          <UiButton
+            class="apartments__load-more"
+            variant="outlined"
+            :loading="isLoading"
+            @click="loadMore"
           >
-            <UiButton
-              class="apartments__load-more"
-              variant="outlined"
-              :loading="isLoading"
-              @click="loadMore"
-            >
-              <span class="sr-only">
-                Показано {{ displayedApartments.length }} из
-                {{ totalFilteredCount }} квартир
-              </span>
-              Загрузить ещё
-            </UiButton>
-          </div>
-        </section>
-      </div>
-    </main>
-  </div>
+            <span class="sr-only">
+              Показано {{ displayedApartments.length }} из
+              {{ totalFilteredCount }} квартир
+            </span>
+            Загрузить ещё
+          </UiButton>
+        </div>
+      </section>
+    </div>
+  </main>
 </template>
 
 <style lang="scss" scoped>
-  .page {
-  min-height: 100vh;
-}
-
 .main {
+  min-height: 100vh;
   padding-block: 96px;
 
   @media (width < $bp-md) {
@@ -94,6 +89,7 @@ onMounted(async () => {
   align-items: start;
   grid-template-areas: 'header filter' 'list filter';
   grid-template-columns: 1fr minmax(318px, 0.5fr);
+  grid-template-rows: auto 1fr;
   gap: var(--row-gap) var(--col-gap);
 
   @media (width < $bp-md) {

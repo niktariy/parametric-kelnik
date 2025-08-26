@@ -29,7 +29,7 @@ const gridCells: GridCell[] = [
     sortable: false,
   },
   {
-    name: 'area',
+    name: 'square',
     heading: 'S, м²',
     srOnlyHeading: 'Площадь, метр квадратный',
     sortable: true,
@@ -77,18 +77,21 @@ function handleSort(field: string): void {
             :label="cell.heading"
             :sort-value="getSortValue(cell.name as SortField)"
             @click="handleSort(cell.name)"
-          />
+          >
+            <template #sortLabel>
+              <AccessibleHeading
+                :name="cell.name"
+                :label="cell.heading"
+                :sr-only="cell.srOnlyHeading"
+              />
+            </template>
+          </SortButton>
           <template v-else>
-            <span
-              v-if="cell.srOnlyHeading"
-              :id="`${cell.name}_aria_label`"
-              class="sr-only"
-            >
-              {{ cell.srOnlyHeading }}
-            </span>
-            <span :aria-hidden="!!cell.srOnlyHeading">
-              {{ cell.heading }}
-            </span>
+            <AccessibleHeading
+              :name="cell.name"
+              :label="cell.heading"
+              :sr-only="cell.srOnlyHeading"
+            />
           </template>
         </span>
       </div>
@@ -101,8 +104,7 @@ function handleSort(field: string): void {
         v-if="!data.length"
         :row-index="2"
       >
-        Квартиры не найдены. Пожалуйста, измените параметры
-        фильтра.
+        Квартиры не найдены. Пожалуйста, измените параметры фильтра.
       </ApartmentRow>
       <ApartmentRow
         v-for="(apartment, index) in data"

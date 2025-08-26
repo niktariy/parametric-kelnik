@@ -7,7 +7,7 @@
   "author": "Veronika Khalikova <vervaspro@icloud.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourname/your-repo.git"
+    "url": "https://github.com/niktariy/parametric-kelnik"
   },
   "keywords": [
     "nuxt",
@@ -27,15 +27,13 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint . --ext .vue,.ts",
-    "lint:fix": "eslint . --ext .vue,.ts --fix",
-    "format": "prettier --write ."
+    "lint:fix": "eslint . --ext .vue,.ts --fix"
   },
   "dependencies": {
     "@nuxt/fonts": "0.11.4",
     "@nuxt/icon": "1.10.0",
     "@nuxt/image": "1.11.0",
     "@nuxt/scripts": "0.11.10",
-    "@nuxt/ui": "^3.3.2",
     "@pinia/nuxt": "^0.11.2",
     "@unhead/vue": "^2.0.14",
     "nuxt": "^3.18.1",
@@ -56,8 +54,13 @@
     "eslint-plugin-vue": "^10.4.0",
     "postcss-media-minmax": "^5.0.0",
     "postcss-preset-env": "^10.3.0",
-    "prettier": "^3.3.3",
     "sass": "^1.90.0",
     "typescript": "^5.9.2"
-  }
+  },
+  "browserslist": [
+    "Chrome >= 90",
+    "Firefox >= 88",
+    "Safari >= 14",
+    "Edge >= 90"
+  ]
 }
