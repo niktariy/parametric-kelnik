@@ -1,0 +1,138 @@
+@use 'sass:map';
+
+// colors
+$primary: (
+  600: #3eb57c,
+  500: #95d0a1,
+  400: #aee4b2,
+);
+$secondary: #e4a79d;
+$dark-blue: #0b1739;
+$black: #000000;
+$white: #ffffff;
+
+$main-font-color: $dark-blue;
+$main-font-color-inverse: $white;
+
+$element-background-shadow: linear-gradient(
+  135deg,
+  rgba(map.get($primary, 500), 0.3) 0%,
+  rgba(map.get($primary, 400), 0.3) 100%
+);
+
+$border-color: rgba($black, 0.1);
+$button-border-color: rgba($main-font-color, 0.2);
+
+$button-colors: (
+  'solid': (
+    'background': (
+      'default': map.get($primary, 500),
+      'hover': map.get($primary, 600),
+      'focus': map.get($primary, 600),
+    ),
+    'text': (
+      'default': $main-font-color-inverse,
+      'hover': $main-font-color-inverse,
+      'focus': $main-font-color-inverse,
+    ),
+  ),
+  'outlined': (
+    'background': (
+      'default': $white,
+      'hover': rgba(map.get($primary, 600), 0.3),
+      'focus': map.get($primary, 600),
+    ),
+    'text': (
+      'default': $main-font-color,
+      'hover': $main-font-color,
+      'focus': $main-font-color-inverse,
+    ),
+  ),
+  'text': (
+    'background': (
+      'default': transparent,
+      'hover': $white,
+      'focus': map.get($primary, 600),
+    ),
+    'text': (
+      'default': $main-font-color,
+      'hover': $main-font-color,
+      'focus': $main-font-color-inverse,
+    ),
+  ),
+  'raised': (
+    'background': (
+      'default': map.get($primary, 600),
+      'hover': map.get($primary, 400),
+      'focus': map.get($primary, 600),
+    ),
+    'text': (
+      'default': $main-font-color-inverse,
+      'hover': $main-font-color,
+      'focus': $main-font-color,
+    ),
+    'shadow': (
+      'default': map.get($primary, 500),
+      'hover': rgba(map.get($primary, 400), 0.4),
+      'focus': rgba(map.get($primary, 600), 0.4),
+    ),
+  ),
+);
+
+$control-checkbox-colors: (
+  'background': (
+    'default': $white,
+    'hover': map.get($primary, 400),
+    'selected': map.get($button-colors, 'raised', 'background', 'default'),
+    'disabled': $white,
+  ),
+  'text': (
+    'default': $main-font-color,
+    'hover': $main-font-color,
+    'selected': map.get($button-colors, 'raised', 'text', 'default'),
+    'disabled': rgba($main-font-color, 0.2),
+  ),
+  'shadow': (
+    'hover': map.get($button-colors, 'raised', 'shadow', 'hover'),
+    'focus': map.get($button-colors, 'raised', 'shadow', 'focus'),
+    'selected': map.get($button-colors, 'raised', 'shadow', 'default'),
+  ),
+);
+
+$breakpoints: (
+  'sm': 900,
+  'md': 1200,
+);
+$bp-sm: map.get($breakpoints, 'sm') + 'px';
+$bp-md: map.get($breakpoints, 'md') + 'px';
+
+$radius: (
+  'xxs': 1.5px,
+  'sm': 8px,
+  'md': 10px,
+  'lg': 25px,
+  'pill': 999px,
+  'round': 50%,
+);
+
+$button-radius: map.get($radius, 'pill');
+
+$card-border: 1px solid $border-color;
+$card-radius: map.get($radius, 'sm');
+
+$filter-radius: map.get($radius, 'md');
+$filter-background: $element-background-shadow;
+
+$input-border-radius: map.get($radius, 'xxs');
+$input-active-color: map.get($primary, 500);
+$input-label-color: rgba($main-font-color, 0.5);
+$input-value-color: $main-font-color;
+
+$slider-track-background: rgba($dark-blue, 0.1);
+$slider-track-radius: map.get($radius, 'xxs');
+$slider-range-background: map.get($primary, 600);
+$slider-range-radius: map.get($radius, 'xxs');
+$slider-thumb-background: map.get($primary, 600);
+$slider-thumb-radius: map.get($radius, 'round');
+
+$sort-actvie-color: map.get($primary, 600);

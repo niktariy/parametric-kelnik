@@ -1,0 +1,16 @@
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+@media (width > 1100px) {
+  .hide-md-up {
+    display: none;
+  }
+  .show-md-up {
+    display: block;
+  }
+}

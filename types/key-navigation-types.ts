@@ -1,0 +1,11 @@
+export type KeyboardDirectionalNavigationKey
+  = | 'Backspace'
+    | 'Delete'
+    | 'Tab'
+    | 'Escape'
+    | 'ArrowLeft'
+    | 'ArrowRight'
+    | 'ArrowUp'
+    | 'ArrowDown'
+    | 'Home'
+    | 'End'
