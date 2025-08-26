@@ -215,8 +215,13 @@ export const useApartmentsStore = defineStore('apartments', () => {
 
   const updateFilters = async (
     newFilters: Partial<FilterState>,
+    timeout?: boolean | null,
   ): Promise<void> => {
     isLoading.value = true
+
+    if (timeout) {
+      await new Promise(resolve => setTimeout(resolve, 500))
+    }
 
     try {
       filters.value = {
@@ -224,7 +229,7 @@ export const useApartmentsStore = defineStore('apartments', () => {
         ...newFilters,
       }
 
-      currentPage.value = 1
+      // currentPage.value = currentPage.value
       updateDisplayedApartments()
 
       if (import.meta.dev) {
@@ -287,7 +292,7 @@ export const useApartmentsStore = defineStore('apartments', () => {
     isLoading.value = true
 
     try {
-      await new Promise(resolve => setTimeout(resolve, 200))
+      await new Promise(resolve => setTimeout(resolve, 300))
 
       if (sortState.value.field === field) {
         if (sortState.value.order === 'desc') {
@@ -317,18 +322,6 @@ export const useApartmentsStore = defineStore('apartments', () => {
     }
   }
 
-  const clearSorting = (): void => {
-    sortState.value.field = null
-    sortState.value.order = 'asc'
-
-    if (import.meta.dev) {
-      localStorage.setItem('apartmentSort', JSON.stringify(sortState.value))
-    }
-
-    currentPage.value = 1
-    updateDisplayedApartments()
-  }
-
   return {
     allApartments,
     displayedApartments,
@@ -343,7 +336,6 @@ export const useApartmentsStore = defineStore('apartments', () => {
     updateFilters,
     resetFilters,
     setSorting,
-    clearSorting,
     getSortValue,
   }
 })

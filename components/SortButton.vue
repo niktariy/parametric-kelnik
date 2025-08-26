@@ -60,7 +60,7 @@ function handleClick(event: MouseEvent) {
     cursor: pointer;
 
     &.is-active {
-      color: $sort-actvie-color;
+      color: $sort-active-color;
     }
 
     &__indicator {
@@ -69,13 +69,17 @@ function handleClick(event: MouseEvent) {
     }
 
     &__icon {
-      color: rgba($main-font-color, 0.4);
+      color: var(--icon-color, #{rgba($main-font-color, 0.4)});
       transition: color 0.2s ease;
       transform: scale(1.25);
 
       :where([aria-sort='ascending']) &--asc,
       :where([aria-sort='descending']) &--desc {
-        color: currentColor;
+        --icon-color: currentColor;
+      }
+      :where([aria-sort='ascending']) &--desc,
+      :where([aria-sort='descending']) &--asc {
+        --icon-color: #{$sort-inactive-color};
       }
     }
   }

@@ -37,7 +37,7 @@
 }
 
 :root {
-  font-family: 'PT Root UI', Arial, Helvetica, sans-serif;
+  --main-font: 'PT Root UI', Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -45,8 +45,9 @@ html {
 }
 
 body {
-  background-color: #ffffff;
-  color: #0b1739;
+  background-color: $white;
+  color: $main-font-color;
+  font-family: var(--main-font);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,25 +67,25 @@ input {
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding-inline: 80px;
+  padding-inline: 5rem;
 
   @media (width < $bp-md) {
-    padding-inline: 54px;
+    padding-inline: 3.375rem;
   }
 
   @media (width < $bp-sm) {
-    padding-inline: 24px;
+    padding-inline: 1.5rem;
   }
 }
 
 h1 {
-  font-size: 54px;
+  font-size: 3.375rem;
   font-weight: 700;
   line-height: 1.02;
   margin-bottom: 0;
 
   @media (width < $bp-sm) {
-    font-size: 32px;
+    font-size: 2rem;
   }
 }
 

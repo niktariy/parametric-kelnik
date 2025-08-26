@@ -398,7 +398,7 @@ watch([() => props.minValue, () => props.maxValue], () => {
   &__fields {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 0.25rem;
     width: 100%;
   }
 
@@ -410,7 +410,7 @@ watch([() => props.minValue, () => props.maxValue], () => {
   &__input-group {
     flex: 1;
     display: flex;
-    gap: 4px;
+    gap: 0.25rem;
     align-items: center;
   }
 
@@ -426,7 +426,7 @@ watch([() => props.minValue, () => props.maxValue], () => {
 
   &__input {
     width: auto;
-    padding: 4px;
+    padding: 0.25rem;
     border: none;
     border-radius: $input-border-radius;
     font-size: 1rem;

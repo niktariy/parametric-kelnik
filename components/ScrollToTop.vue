@@ -88,6 +88,6 @@ onUnmounted(() => {
 .scroll-to-top-enter-from,
 .scroll-to-top-leave-to {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(1.25rem);
 }
 </style>

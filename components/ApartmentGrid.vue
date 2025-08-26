@@ -119,13 +119,13 @@ function handleSort(field: string): void {
 
 <style lang="scss" scoped>
   .apartment-grid {
-  --apartment-gap: 20px;
+  --apartment-gap: 1.25rem;
   --apartment-grid-areas: 'plan title area floor price';
   --apartment-grid-columns: var(--apartment-plan-image-size) minmax(120px, 1fr) repeat(3, minmax(min-content, 120px));
-  --apartment-plan-image-size: 80px;
+  --apartment-plan-image-size: 5rem;
   --header-grid-areas: var(--apartment-grid-areas);
   --header-grid-columns: var(--apartment-grid-columns);
-  --layout-gap: 16px;
+  --layout-gap: 1rem;
   --list-gap: 1px;
 
   display: flex;
@@ -133,12 +133,12 @@ function handleSort(field: string): void {
   gap: var(--layout-gap);
 
   @media (width < $bp-md) {
-    --apartment-gap: 16px 20px;
+    --apartment-gap: 1rem 1.25rem;
     --apartment-grid-areas: 'title title title plan' 'area floor price plan';
     --apartment-grid-columns: max-content max-content 1fr var(--apartment-plan-image-size);
-    --layout-gap: 4px;
+    --layout-gap: 0.25rem;
     --list-gap: var(--layout-gap);
-    --row-gap: 16px;
+    --row-gap: 1rem;
   }
 
   @media (width < $bp-sm) {
@@ -158,7 +158,7 @@ function handleSort(field: string): void {
       gap: 0;
 
       > * {
-        padding: 8px 10px;
+        padding: 0.5rem 0.625rem;
       }
 
       .cell-plan,

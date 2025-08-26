@@ -67,7 +67,7 @@ const roomTypes = computed(() => {
 const selectedRooms = computed<RoomType[]>({
   get: () => filters.value.roomType ?? [],
   set: async (val) => {
-    await apartmentsStore.updateFilters({ roomType: val })
+    await apartmentsStore.updateFilters({ roomType: val }, true)
   },
 })
 
@@ -184,7 +184,7 @@ async function resetFilters() {
 
   &__section {
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 1.5rem;
 
     &:last-child {
       margin-bottom: 0;
@@ -193,7 +193,7 @@ async function resetFilters() {
 
   &__room-types {
     display: flex;
-    gap: 16px;
+    gap: 1rem;
     align-items: center;
     flex-wrap: wrap;
 
@@ -228,8 +228,8 @@ async function resetFilters() {
   }
 
   &__loading-spinner {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     border: 2px solid transparent;
     border-top: 2px solid currentColor;
     border-radius: 50%;

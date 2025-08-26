@@ -41,13 +41,6 @@ onMounted(async () => {
           </div>
 
           <ApartmentGrid :data="displayedApartments" />
-
-          <div
-            v-if="isLoading && !canLoadMore"
-            class="apartments__loading"
-          >
-            Загрузка...
-          </div>
         </div>
         <div
           v-if="canLoadMore"
@@ -74,33 +67,34 @@ onMounted(async () => {
 <style lang="scss" scoped>
 .main {
   min-height: 100vh;
-  padding-block: 96px;
+  padding-block: 6rem;
 
   @media (width < $bp-md) {
-    padding-block: 48px;
+    padding-block: 3rem;
   }
 }
 
 .apartments {
-  --col-gap: 80px;
-  --row-gap: 48px;
+  --col-gap: 5rem;
+  --row-gap: 3rem;
+  --grid-areas: 'header filter' 'list filter';
+  --grid-columns: 1fr minmax(318px, 0.5fr);
 
   display: grid;
   align-items: start;
-  grid-template-areas: 'header filter' 'list filter';
-  grid-template-columns: 1fr minmax(318px, 0.5fr);
+  grid-template-areas: var(--grid-areas);
+  grid-template-columns: var(--grid-columns);
   grid-template-rows: auto 1fr;
   gap: var(--row-gap) var(--col-gap);
 
   @media (width < $bp-md) {
-    --col-gap: 28px;
-    --row-gap: 24px;
+    --col-gap: 1.75rem;
+    --row-gap: 1.5rem;
   }
 
   @media (width < $bp-sm) {
-    --row-gap: 24px;
-    grid-template-areas: 'header' 'filter' 'list';
-    grid-template-columns: 1fr;
+    --grid-areas: 'header' 'filter' 'list';
+    --grid-columns: 1fr;
 
     &__load-more {
       width: 100%;
@@ -109,15 +103,6 @@ onMounted(async () => {
 
   &__header {
     grid-area: header;
-  }
-
-  &__info {
-    margin-top: 0.5rem;
-  }
-
-  &__count {
-    font-size: 0.875rem;
-    color: #666;
   }
 
   &__filter {
@@ -131,8 +116,7 @@ onMounted(async () => {
 
   &__loading {
     text-align: center;
-    padding: 40px 0;
-    color: #666;
+    padding: 2.5rem 0;
   }
 
   &__loading-overlay {
@@ -146,18 +130,17 @@ onMounted(async () => {
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
+    background: rgba($white, 0.9);
+    border-radius: inherit;
     z-index: 10;
     font-size: 0.875rem;
-    color: #666;
   }
 
   &__loading-spinner {
-    width: 32px;
-    height: 32px;
-    border: 3px solid transparent;
-    border-top: 3px solid currentColor;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }

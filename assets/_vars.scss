@@ -10,6 +10,7 @@ $secondary: #e4a79d;
 $dark-blue: #0b1739;
 $black: #000000;
 $white: #ffffff;
+$grey: #e2e2e2;
 
 $main-font-color: $dark-blue;
 $main-font-color-inverse: $white;
@@ -108,9 +109,8 @@ $bp-md: map.get($breakpoints, 'md') + 'px';
 
 $radius: (
   'xxs': 1.5px,
-  'sm': 8px,
-  'md': 10px,
-  'lg': 25px,
+  'sm': 0.5rem,
+  'md': 0.625rem,
   'pill': 999px,
   'round': 50%,
 );
@@ -135,4 +135,5 @@ $slider-range-radius: map.get($radius, 'xxs');
 $slider-thumb-background: map.get($primary, 600);
 $slider-thumb-radius: map.get($radius, 'round');
 
-$sort-actvie-color: map.get($primary, 600);
+$sort-active-color: map.get($primary, 600);
+$sort-inactive-color: $grey;

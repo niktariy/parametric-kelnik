@@ -84,7 +84,7 @@ const apartmentTitle = computed(() => {
   .apartment {
   --card-border-width: 1px 0 0 0;
   --card-fsz: 1rem;
-  --card-padding-block: 16px 24px;
+  --card-padding-block: 1rem 1.5rem;
   --card-padding-inline: 0;
 
   display: grid;
@@ -109,8 +109,8 @@ const apartmentTitle = computed(() => {
   @media (width < $bp-md) {
     --card-border-width: 1px;
     --card-fsz: 0.875rem;
-    --card-padding-block: 16px;
-    --card-padding-inline: 24px;
+    --card-padding-block: 1rem;
+    --card-padding-inline: 1.5rem;
 
     border-radius: $card-radius;
     font-weight: 500;

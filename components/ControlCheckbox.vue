@@ -108,10 +108,10 @@ function onChange(event: Event) {
   &__label {
     display: flex;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    padding: 10px 12px;
-    font-size: 16px;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.625rem 0.75rem;
+    font-size: 1rem;
     text-align: center;
     background-color: var(--control-background);
     border-radius: map.get($radius, 'round');
